@@ -1,25 +1,19 @@
 @echo off
-title Counter Siege - Tactical FPS
+title CS 1.6 Clone
 echo ================================
-echo   COUNTER SIEGE - Tactical FPS
+echo     CS 1.6 CLONE  —  Setup
 echo ================================
-echo.
-
 python --version >nul 2>&1
 if errorlevel 1 (
-    echo ERROR: Python not found.
-    echo Please install Python 3.8+ from https://python.org
-    echo Make sure to check "Add Python to PATH" during install.
-    pause
-    exit /b
+    echo ERROR: Python not found. Install from https://python.org
+    echo Make sure to check "Add Python to PATH"
+    pause & exit /b
 )
-
 python -c "import cv2" >nul 2>&1
 if errorlevel 1 (
-    echo Installing required packages...
+    echo Installing opencv-python...
     pip install opencv-python numpy
 )
-
-echo Starting Counter Siege...
-python counter_siege.py %*
+echo Launching game...
+python cs16_clone.py %*
 pause
